@@ -68,14 +68,20 @@ class Magazine:
         return set([article.author for article in self.articles()])
 
     def contributing_authors(self):
-        authors = {}
-        for article in self.articles():
-            if article.author.name in authors:
-                authors[article.author.name] += 1
-            else:
-                authors[article.author.name] = 1
-        return [key for key, value in authors.items() if value > 2]
         
+        if len(self.articles()) < 3:
+            return None
+        
+        # Count the number of articles per author
+        author_counts = {}
+        for article in self.articles():
+            if article.author.name in author_counts:
+                author_counts[article.author.name] += 1
+            else:
+                author_counts[article.author.name] = 1
+        
+        # Return a list of authors who have written more than 2 articles
+        return [author for author, count in author_counts.items() if count > 2]
 
     def article_titles(self):
         return [article.title for article in self.articles()]
