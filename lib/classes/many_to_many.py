@@ -126,3 +126,18 @@ class Article:
         if not isinstance(value, Magazine):
             raise TypeError("Magazine must be an instance of the Magazine class.")
         self._magazine = value
+
+author1 = Author("John Doe")
+magazine1 = Magazine("Tech Times", "Technology")
+
+article1 = Article(author1, magazine1, "Introduction to Technology")
+article2 = Article(author1, magazine1, "Latest Gadgets Review")
+
+author1.add_article(magazine1, "Introduction to Technology")
+author1.add_article(magazine1, "Latest Gadgets Review")
+
+# Accessing magazines an author has contributed to
+magazines_author_contributed_to = author1.magazines()
+
+# Accessing authors who have contributed to a magazine
+authors_magazine_contributed_by = magazine1.contributors()        
