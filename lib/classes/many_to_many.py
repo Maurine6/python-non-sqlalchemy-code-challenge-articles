@@ -148,3 +148,31 @@ class Magazine:
             return list_of_authors
         else:
             return None
+
+#example
+# Create an author
+john_doe = Author("John Doe")
+
+# Create a magazine
+tech_magazine = Magazine("Tech Today", "Technology")
+
+# Add an article authored by John Doe to the Tech Today magazine
+x = john_doe.add_article(tech_magazine, "The Future of AI")
+# Accessing articles authored by John Doe
+john_does_articles = john_doe.articles()  
+
+print(john_doe.name,tech_magazine.name)
+print(x.title) 
+  
+
+# Get contributors for the Tech Today magazine
+tech_contributors = tech_magazine.contributors()
+
+# Get article titles for the Tech Today magazine
+tech_article_titles = tech_magazine.article_titles()
+
+# Get authors who contributed more than one article to the Tech Today magazine
+prolific_authors = tech_magazine.contributing_authors()
+
+# Get the topic areas covered by John Doe
+john_doe_topics = john_doe.topic_areas()
